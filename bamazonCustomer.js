@@ -54,8 +54,7 @@ function questions(){
                     if( answer.units < res[i].stock_quantity){
 
                         result = res[i].stock_quantity - answer.units;
-                        console.log(result);
-
+                        
                         totalCost = answer.units * res[i].price;
                         
                         connection.query( "UPDATE products SET ? WHERE ?", 
@@ -68,18 +67,18 @@ function questions(){
                             }
                         ],
                         function(error, res){
-                            console.log("okay");
                             
                             console.log("Your total cost of purchase is: " + totalCost)
-                        }
-                        );
+                        });
                     }
                     else{
                         console.log("Sorry, insufficient quantity");
                     }
+
                 }
             });
         }); 
+        
     }
 
     
